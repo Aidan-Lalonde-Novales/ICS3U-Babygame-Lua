@@ -1,6 +1,6 @@
--- 2nd Baby Game Learning Guide
+-- 3rd Baby Game Learning Guide
 
--- adds font, resize, title change, esc to quit, and fps counter
+-- adds a sprite, which is used for the ground, and sets a background
 
 VIRTUAL_WIDTH = 432
 VIRTUAL_HEIGHT = 243
