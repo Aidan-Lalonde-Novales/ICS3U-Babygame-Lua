@@ -20,8 +20,8 @@ function love.load()
     largefont = love.graphics.newFont('fonts/pixel_text.ttf', 32)
 end
 
-function love.resize(w, h)
-    push:resize(w, h)
+function love.resize(width, height)
+    push:resize(width, height)
 end
 
 function love.draw()
