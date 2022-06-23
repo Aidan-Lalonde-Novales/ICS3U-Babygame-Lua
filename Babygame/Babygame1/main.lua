@@ -2,19 +2,19 @@
 
 -- adds font, resize, title change, esc to quit, and fps counter
 
-VIRTUAL_WIDTH = 432
-VIRTUAL_HEIGHT = 243
-
 WINDOW_WIDTH = 1280
 WINDOW_HEIGHT = 720
+
+VIRTUAL_WIDTH = 432
+VIRTUAL_HEIGHT = 243
 
 push = require 'push'
 
 function love.load()  
-    love.window.setMode(WINDOW_WIDTH, WINDOW_HEIGHT, {
+    push:setupScreen(VIRTUAL_WIDTH, VIRTUAL_HEIGHT, WINDOW_WIDTH, WINDOW_HEIGHT, {
         fullscreen = false,
+        vsync = true,
         resizable = true
-    })
 
     love.window.setTitle('Baby Game by A.M.W.L.N')
 
