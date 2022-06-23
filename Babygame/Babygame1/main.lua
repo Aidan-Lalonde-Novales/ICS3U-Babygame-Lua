@@ -11,15 +11,16 @@ VIRTUAL_HEIGHT = 243
 push = require 'push'
 
 function love.load()  
-    push:setupScreen(VIRTUAL_WIDTH, VIRTUAL_HEIGHT, WINDOW_WIDTH, WINDOW_HEIGHT, {
-        fullscreen = false,
-        vsync = true,
-        resizable = true
-
     love.window.setTitle('Baby Game by A.M.W.L.N')
 
     smallfont = love.graphics.newFont('fonts/pixel_text.ttf', 14)
     largefont = love.graphics.newFont('fonts/pixel_text.ttf', 32)
+
+    push:setupScreen(VIRTUAL_WIDTH, VIRTUAL_HEIGHT, WINDOW_WIDTH, WINDOW_HEIGHT, {
+        fullscreen = false,
+        vsync = true,
+        resizable = true
+    })
 end
 
 function love.resize(w, h)
@@ -27,9 +28,13 @@ function love.resize(w, h)
 end
 
 function love.draw()
+    push:apply('start')
+
     displayFPS()
     love.graphics.setFont(largefont)
     love.graphics.printf("Hello World!", 0, WINDOW_HEIGHT / 2 - 6, WINDOW_WIDTH, 'center')
+    
+    push:apply('end')
 end
 
 function love.keypressed(key)
