@@ -17,7 +17,7 @@ local push = {
   
   defaults = {
     fullscreen = false,
-    resizable = true,
+    resizable = false,
     pixelperfect = false,
     highdpi = true,
     canvas = true,
