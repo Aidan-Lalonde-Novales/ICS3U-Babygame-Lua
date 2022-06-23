@@ -32,8 +32,8 @@ function love.draw()
 
     displayFPS()
     love.graphics.setFont(largefont)
-    love.graphics.printf("Hello World!", 0, WINDOW_HEIGHT / 2 - 6, WINDOW_WIDTH, 'center')
-    
+    love.graphics.printf("Hello World!", 0, VIRTUAL_HEIGHT / 2 - 6, VIRTUAL_WIDTH, 'center')
+
     push:apply('end')
 end
 
@@ -46,6 +46,6 @@ end
 function displayFPS()
     love.graphics.setColor(254 / 255, 255 / 255, 254 / 255, 255 / 255)
     love.graphics.setFont(smallfont)
-    love.graphics.print('FPS '.. tostring(love.timer.getFPS()), 40, 20)
+    love.graphics.print('FPS '.. tostring(love.timer.getFPS()), 16, 8)
     love.graphics.setColor(255 / 255, 255 / 255, 255 / 255, 255 / 255)
 end
