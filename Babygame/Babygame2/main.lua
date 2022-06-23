@@ -37,7 +37,7 @@ function love.draw()
     displayFPS()
 
     love.graphics.draw(background)
-    love.graphics.draw(block)
+    love.graphics.draw(block, 0, (VIRTUAL_HEIGHT - block:getHeight()))
 
     love.graphics.setFont(largefont)
     love.graphics.printf("Hello World!", 0, VIRTUAL_HEIGHT / 2 - 6, VIRTUAL_WIDTH, 'center')
