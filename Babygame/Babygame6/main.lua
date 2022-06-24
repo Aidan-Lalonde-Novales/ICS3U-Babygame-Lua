@@ -1,6 +1,6 @@
--- 6th Baby Game Learning Guide
+-- 7th Baby Game Learning Guide
 
--- makes baby sprite constantly move
+-- allows pressing the spacebar to return the baby to it's original position
 
 WINDOW_WIDTH = 1280
 WINDOW_HEIGHT = 720
@@ -62,6 +62,9 @@ end
 function love.keypressed(key)
     if key == 'escape' then
         love.event.quit()
+    end
+    if key == 'space' then
+        baby.x = 370
     end
 end
 

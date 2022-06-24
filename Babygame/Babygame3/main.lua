@@ -1,4 +1,4 @@
--- 3rd Baby Game Learning Guide
+-- 4th Baby Game Learning Guide
 
 -- adds sprites to act as the ground and the background
 
@@ -35,10 +35,10 @@ end
 function love.draw()
     push:apply('start')
 
-    displayFPS()
-
     love.graphics.draw(sprites.background)
     love.graphics.draw(sprites.ground, 0, (VIRTUAL_HEIGHT - 60))
+
+    displayFPS()
 
     love.graphics.setFont(largefont)
     love.graphics.printf("Hello Ground!", 0, VIRTUAL_HEIGHT / 2 - 6, VIRTUAL_WIDTH, 'center')

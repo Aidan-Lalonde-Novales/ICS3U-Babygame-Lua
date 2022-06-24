@@ -1,6 +1,6 @@
--- 6th Baby Game Learning Guide
+-- 9th Baby Game Learning Guide
 
--- makes baby sprite constantly move
+-- adds a fire sprite for the gameover state to trigger at
 
 WINDOW_WIDTH = 1280
 WINDOW_HEIGHT = 720
@@ -23,6 +23,7 @@ function love.load()
     baby = {}
     baby.x = 370
     baby.y = 150
+    gameState = 0
 
     smallfont = love.graphics.newFont('fonts/pixel_text.ttf', 14)
     largefont = love.graphics.newFont('fonts/pixel_text.ttf', 32)
@@ -36,6 +37,12 @@ end
 
 function love.update(dt)
     baby.x = baby.x - 0.5
+    if baby.x < 0 then
+        gameState = 1
+        gameOver()
+        baby.x = 500
+        baby.y = 1000
+    end
 end
 
 
@@ -52,9 +59,9 @@ function love.draw()
     love.graphics.draw(sprites.ground, 0, (VIRTUAL_HEIGHT - 60))
 
     displayFPS()
-
-    love.graphics.setFont(largefont)
-    love.graphics.printf("Hello Ground!", 0, VIRTUAL_HEIGHT / 2 - 6, VIRTUAL_WIDTH, 'center')
+    if gameState == 1 then
+        gameOver()
+    end
 
     push:apply('end')
 end
@@ -62,6 +69,9 @@ end
 function love.keypressed(key)
     if key == 'escape' then
         love.event.quit()
+    end
+    if key == 'space' then
+        baby.x = 370
     end
 end
 
@@ -71,3 +81,9 @@ function displayFPS()
     love.graphics.print('FPS '.. tostring(love.timer.getFPS()), 16, 8)
     love.graphics.setColor(255 / 255, 255 / 255, 255 / 255, 255 / 255)
 end
+
+function gameOver()
+    love.graphics.setFont(largefont)
+    love.graphics.printf("Game Over, You Monster!", 0, VIRTUAL_HEIGHT / 2 - 6, VIRTUAL_WIDTH, 'center')
+end
+    

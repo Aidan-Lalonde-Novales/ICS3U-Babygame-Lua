@@ -1,14 +1,14 @@
--- 3rd Baby Game Learning Guide
+-- 5th Baby Game Learning Guide
 
--- adds baby sprite image ontop of block
+-- adds baby sprite image ontop of the ground
 
 WINDOW_WIDTH = 1280
 WINDOW_HEIGHT = 720
 
 VIRTUAL_WIDTH = 432
 VIRTUAL_HEIGHT = 243
-BABY_PLACEMENT_X = 415
-BABY_PLACEMENT_Y = 162.5
+BABY_PLACEMENT_X = 370
+BABY_PLACEMENT_Y = 150
 
 push = require 'push'
 
@@ -38,11 +38,11 @@ end
 function love.draw()
     push:apply('start')
 
-    displayFPS()
-
     love.graphics.draw(sprites.background)
     love.graphics.draw(sprites.baby, BABY_PLACEMENT_X, BABY_PLACEMENT_Y)
     love.graphics.draw(sprites.ground, 0, (VIRTUAL_HEIGHT - 60))
+
+    displayFPS()
 
     love.graphics.setFont(largefont)
     love.graphics.printf("Hello Ground!", 0, VIRTUAL_HEIGHT / 2 - 6, VIRTUAL_WIDTH, 'center')
