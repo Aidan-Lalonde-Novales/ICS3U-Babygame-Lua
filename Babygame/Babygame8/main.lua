@@ -83,6 +83,6 @@ end
 
 function gameOver()
     love.graphics.setFont(largefont)
-    love.graphics.printf("Game Over, You Monster!", 0, VIRTUAL_HEIGHT / 2 - 6, VIRTUAL_WIDTH, 'center')
+    love.graphics.printf("Game Over, You Monster!", 0, VIRTUAL_HEIGHT / 2.5, VIRTUAL_WIDTH, 'center')
 end
     
