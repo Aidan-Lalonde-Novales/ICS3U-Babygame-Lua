@@ -53,7 +53,7 @@ function love.draw()
     push:apply('start')
 
     love.graphics.draw(sprites.background)
-    love.graphics.draw(sprites.fire)
+    love.graphics.draw(sprites.fire, 35, 120)
     love.graphics.draw(sprites.baby,  baby.x , baby.y)
     love.graphics.draw(sprites.ground, 0, (VIRTUAL_HEIGHT - 60))
 
