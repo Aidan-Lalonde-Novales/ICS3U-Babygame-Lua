@@ -37,7 +37,7 @@ end
 
 function love.update(dt)
     baby.x = baby.x - 0.5
-    if baby.x < 28 then
+    if baby.x < 38 then
         gameState = 1
         gameOver()
         baby.x = 500
