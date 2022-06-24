@@ -37,7 +37,7 @@ end
 
 function love.update(dt)
     baby.x = baby.x - 0.5
-    if baby.x < 0 then
+    if baby.x < 28 then
         gameState = 1
         gameOver()
         baby.x = 500
@@ -53,8 +53,8 @@ function love.draw()
     push:apply('start')
 
     love.graphics.draw(sprites.background)
-    love.graphics.draw(sprites.fire, 35, 120)
     love.graphics.draw(sprites.baby,  baby.x , baby.y)
+    love.graphics.draw(sprites.fire, 35, 125)
     love.graphics.draw(sprites.ground, 0, (VIRTUAL_HEIGHT - 60))
 
     displayFPS()
