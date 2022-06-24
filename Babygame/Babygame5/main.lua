@@ -1,4 +1,4 @@
--- 5rd Baby Game Learning Guide
+-- 3rd Baby Game Learning Guide
 
 -- adds baby sprite image ontop of block
 
@@ -31,12 +31,6 @@ function love.load()
     })
 end
 
-function love.update()
-    for i,z in ipairs(baby) do
-        z.x = z.x + 3
-    end
-end
-
 function love.resize(w, h)
     push:resize(w, h)
 end
@@ -47,7 +41,7 @@ function love.draw()
     displayFPS()
 
     love.graphics.draw(sprites.background)
-    love.graphics.draw(sprites.baby, BABY_PLACEMENT_X, 0)
+    love.graphics.draw(sprites.baby, BABY_PLACEMENT_X, BABY_PLACEMENT_Y)
     love.graphics.draw(sprites.ground, 0, (VIRTUAL_HEIGHT - 60))
 
     love.graphics.setFont(largefont)
@@ -60,12 +54,6 @@ function love.keypressed(key)
     if key == 'escape' then
         love.event.quit()
     end
-    if key == 'space' then
-        spawnbaby()
-    end
-end
-function spawnbaby()
-    love.graphics.draw(sprites.baby, BABY_PLACEMENT_X, BABY_PLACEMENT_Y)
 end
 
 function displayFPS()
