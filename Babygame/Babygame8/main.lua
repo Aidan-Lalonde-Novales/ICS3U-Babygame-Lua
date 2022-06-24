@@ -8,7 +8,6 @@ WINDOW_HEIGHT = 720
 VIRTUAL_WIDTH = 432
 VIRTUAL_HEIGHT = 243
 
-
 push = require 'push'
 
 function love.load()  
@@ -19,6 +18,7 @@ function love.load()
     sprites.background = love.graphics.newImage("images/background.png")
     sprites.ground = love.graphics.newImage("images/ground.png")
     sprites.baby = love.graphics.newImage("images/baby.png")
+    sprites.fire = love.graphics.newImage("images/fire1.png")
 
     baby = {}
     baby.x = 370
@@ -45,8 +45,6 @@ function love.update(dt)
     end
 end
 
-
-
 function love.resize(w, h)
     push:resize(w, h)
 end
@@ -55,6 +53,7 @@ function love.draw()
     push:apply('start')
 
     love.graphics.draw(sprites.background)
+    love.graphics.draw(sprites.fire)
     love.graphics.draw(sprites.baby,  baby.x , baby.y)
     love.graphics.draw(sprites.ground, 0, (VIRTUAL_HEIGHT - 60))
 
