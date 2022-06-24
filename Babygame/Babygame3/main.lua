@@ -1,13 +1,12 @@
 -- 3rd Baby Game Learning Guide
 
--- adds a block sprite to act as the ground, and a background
+-- adds sprites to act as the ground and the background
 
 WINDOW_WIDTH = 1280
 WINDOW_HEIGHT = 720
 
 VIRTUAL_WIDTH = 432
 VIRTUAL_HEIGHT = 243
-counter = 0
 
 push = require 'push'
 
@@ -17,7 +16,7 @@ function love.load()
     love.graphics.setDefaultFilter('nearest', 'nearest')  
     sprites = {}
     sprites.background = love.graphics.newImage("images/background.png")
-    sprites.block = love.graphics.newImage("images/block.png")
+    sprites.ground = love.graphics.newImage("images/ground.png")
 
     smallfont = love.graphics.newFont('fonts/pixel_text.ttf', 14)
     largefont = love.graphics.newFont('fonts/pixel_text.ttf', 32)
@@ -39,16 +38,10 @@ function love.draw()
     displayFPS()
 
     love.graphics.draw(sprites.background)
-
-    for i = 1, 25 do 
-    counter = counter + 30
-    love.graphics.draw(sprites.block, counter, VIRTUAL_HEIGHT,  VIRTUAL_WIDTH)
-    end
-    
-    
+    love.graphics.draw(sprites.ground, 0, VIRTUAL_HEIGHT,  VIRTUAL_WIDTH)
 
     love.graphics.setFont(largefont)
-    love.graphics.printf("Hello World!", 0, VIRTUAL_HEIGHT / 2 - 6, VIRTUAL_WIDTH, 'center')
+    love.graphics.printf("Hello (back)Ground!", 0, VIRTUAL_HEIGHT / 2 - 6, VIRTUAL_WIDTH, 'center')
 
     push:apply('end')
 end
