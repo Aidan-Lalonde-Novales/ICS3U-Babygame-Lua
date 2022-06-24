@@ -13,9 +13,7 @@ push = require 'push'
 function love.load()  
     love.window.setTitle('Baby Game by A.M.W.L.N')
 
-    love.graphics.setDefaultFilter('nearest', 'nearest')  
-    background = love.graphics.newImage("images/background.png")
-    block = love.graphics.newImage("images/block.png")
+    love.graphics.setDefaultFilter('nearest', 'nearest')
 
     smallfont = love.graphics.newFont('fonts/pixel_text.ttf', 14)
     largefont = love.graphics.newFont('fonts/pixel_text.ttf', 32)
@@ -35,9 +33,6 @@ function love.draw()
     push:apply('start')
 
     displayFPS()
-
-    love.graphics.draw(background)
-    love.graphics.draw(block, 0, (VIRTUAL_HEIGHT - block:getHeight()))
 
     love.graphics.setFont(largefont)
     love.graphics.printf("Hello World!", 0, VIRTUAL_HEIGHT / 2 - 6, VIRTUAL_WIDTH, 'center')
