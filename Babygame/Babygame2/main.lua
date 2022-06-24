@@ -1,6 +1,6 @@
 -- 3rd Baby Game Learning Guide
 
--- adds a block sprite to act as the ground, and a background
+-- adds a workable, letterbox style resize
 
 WINDOW_WIDTH = 1280
 WINDOW_HEIGHT = 720
