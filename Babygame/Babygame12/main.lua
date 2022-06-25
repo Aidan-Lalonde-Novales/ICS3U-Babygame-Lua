@@ -1,6 +1,6 @@
--- 12th Baby Game Learning Guide
+-- 13th Baby Game Learning Guide
 
--- adds a win state
+-- adds sound effects and instructions
 
 WINDOW_WIDTH = 1280
 WINDOW_HEIGHT = 720
@@ -56,12 +56,13 @@ function love.load()
         vsync = true,
         resizable = true
     })
-
-    introLine['introLine']:play()
 end
 
 function love.update(dt)
-    baby.x = baby.x - 1
+    if timer >= 20 then
+        baby.x = baby.x - 1
+    end
+
     if baby.x < 38 then
         gameState = 1
         gameOver()
@@ -69,7 +70,17 @@ function love.update(dt)
         baby.y = 1000
     end
 
-    if timer >= 10 then
+    if gameState == 0 then
+        if (timer % 9 == 0) and (timer >= 21) then
+            babyLine['babyLine']:play()
+        end
+    end
+
+    if timer == 1 then
+        introLine['introLine']:play()
+    end
+    
+    if timer >= 35 then
         gameState = 2
         gameWin()
         baby.x = 500
@@ -78,7 +89,6 @@ function love.update(dt)
         love.graphics.draw(sprites.fire2, 1000, 125)
         love.graphics.draw(sprites.fire3, 1000, 125)
         love.graphics.draw(sprites.fire4, 1000, 125)
-
     end
 
     if gameState == 0 then
@@ -139,11 +149,13 @@ end
 function gameOver()
     love.graphics.setFont(largefont)
     love.graphics.printf("Game Over, You Monster!", 0, VIRTUAL_HEIGHT / 2.5, VIRTUAL_WIDTH, 'center')
+    gameoverLine['gameoverLine']:play()
 end
 
 function gameWin()
     love.graphics.setFont(largefont)
     love.graphics.printf("Game Over, You Win!", 0, VIRTUAL_HEIGHT / 2.5, VIRTUAL_WIDTH, 'center')
+    outroLine['outroLine']:play()
 end
 
 function fireAnimate()
