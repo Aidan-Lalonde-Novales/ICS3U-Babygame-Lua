@@ -8,7 +8,6 @@ WINDOW_HEIGHT = 720
 VIRTUAL_WIDTH = 432
 VIRTUAL_HEIGHT = 243
 
-
 push = require 'push'
 
 function love.load()  
@@ -38,8 +37,6 @@ function love.update(dt)
     baby.x = baby.x - 0.5
 end
 
-
-
 function love.resize(w, h)
     push:resize(w, h)
 end
@@ -54,7 +51,7 @@ function love.draw()
     displayFPS()
 
     love.graphics.setFont(largefont)
-    love.graphics.printf("Hello Ground!", 0, VIRTUAL_HEIGHT / 2 - 6, VIRTUAL_WIDTH, 'center')
+    love.graphics.printf("Hello Spacebar!", 0, VIRTUAL_HEIGHT / 2 - 6, VIRTUAL_WIDTH, 'center')
 
     push:apply('end')
 end

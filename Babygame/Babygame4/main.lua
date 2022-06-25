@@ -45,7 +45,7 @@ function love.draw()
     displayFPS()
 
     love.graphics.setFont(largefont)
-    love.graphics.printf("Hello Ground!", 0, VIRTUAL_HEIGHT / 2 - 6, VIRTUAL_WIDTH, 'center')
+    love.graphics.printf("Hello Baby!", 0, VIRTUAL_HEIGHT / 2 - 6, VIRTUAL_WIDTH, 'center')
 
     push:apply('end')
 end

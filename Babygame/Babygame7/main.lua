@@ -45,8 +45,6 @@ function love.update(dt)
     end
 end
 
-
-
 function love.resize(w, h)
     push:resize(w, h)
 end
@@ -86,4 +84,3 @@ function gameOver()
     love.graphics.setFont(largefont)
     love.graphics.printf("Game Over, You Monster!", 0, VIRTUAL_HEIGHT / 2 - 6, VIRTUAL_WIDTH, 'center')
 end
-    

@@ -1,6 +1,6 @@
--- 10th Baby Game Learning Guide
+-- 9th Baby Game Learning Guide
 
--- adds an animation for the fire
+-- adds a sprite to be a fire
 
 WINDOW_WIDTH = 1280
 WINDOW_HEIGHT = 720

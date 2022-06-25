@@ -1,6 +1,6 @@
--- 12th Baby Game Learning Guide
+-- 11th Baby Game Learning Guide
 
--- adds a win state
+-- adds a timer
 
 WINDOW_WIDTH = 1280
 WINDOW_HEIGHT = 720
@@ -101,11 +101,6 @@ end
 function gameOver()
     love.graphics.setFont(largefont)
     love.graphics.printf("Game Over, You Monster!", 0, VIRTUAL_HEIGHT / 2.5, VIRTUAL_WIDTH, 'center')
-end
-
-function gameWin()
-    love.graphics.setFont(largefont)
-    love.graphics.printf("Game Over, You Win!", 0, VIRTUAL_HEIGHT / 2.5, VIRTUAL_WIDTH, 'center')
 end
 
 function fireAnimate()

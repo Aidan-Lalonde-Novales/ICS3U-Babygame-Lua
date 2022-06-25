@@ -50,7 +50,7 @@ function love.update(dt)
         baby.y = 1000
     end
 
-    if timer >= 10 then
+    if timer >= 600 then
         gameState = 2
         gameWin()
         baby.x = 500

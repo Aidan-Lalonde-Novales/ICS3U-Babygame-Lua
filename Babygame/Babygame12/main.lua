@@ -80,7 +80,7 @@ function love.update(dt)
         introLine['introLine']:play()
     end
     
-    if timer >= 35 then
+    if timer >= 600 then
         gameState = 2
         gameWin()
         baby.x = 500
