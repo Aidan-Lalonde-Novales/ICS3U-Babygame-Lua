@@ -18,10 +18,7 @@ function love.load()
     sprites.background = love.graphics.newImage("images/background.png")
     sprites.ground = love.graphics.newImage("images/ground.png")
     sprites.baby = love.graphics.newImage("images/baby.png")
-    sprites.fire1 = love.graphics.newImage("images/fire1.png")
-    sprites.fire2 = love.graphics.newImage("images/fire2.png")
-    sprites.fire3 = love.graphics.newImage("images/fire3.png")
-    sprites.fire4 = love.graphics.newImage("images/fire4.png")
+    sprites.fire = love.graphics.newImage("images/fire1.png")
 
     baby = {}
     baby.x = 370
@@ -57,14 +54,14 @@ function love.draw()
 
     love.graphics.draw(sprites.background)
     love.graphics.draw(sprites.baby,  baby.x , baby.y)
+    love.graphics.draw(sprites.fire, 35, 125)
     love.graphics.draw(sprites.ground, 0, (VIRTUAL_HEIGHT - 60))
 
     displayFPS()
+
     if gameState == 1 then
         gameOver()
     end
-
-    fireAnimate()
 
     push:apply('end')
 end
@@ -89,17 +86,3 @@ function gameOver()
     love.graphics.setFont(largefont)
     love.graphics.printf("Game Over, You Monster!", 0, VIRTUAL_HEIGHT / 2.5, VIRTUAL_WIDTH, 'center')
 end
-
-function fireAnimate()
-    math.random(1,4) == randomfire
-        if randomfire == 4 then
-            love.graphics.draw(sprites.fire1, 35, 125)
-        elseif randomfire == 3 then
-            love.graphics.draw(sprites.fire2, 35, 125)
-        elseif randomfire == 2 then
-            love.graphics.draw(sprites.fire3, 35, 125)
-        elseif randomfire == 1 then
-            love.graphics.draw(sprites.fire4, 35, 125)
-        end
-end
-    
