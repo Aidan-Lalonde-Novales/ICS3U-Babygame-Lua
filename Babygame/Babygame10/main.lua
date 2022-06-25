@@ -1,12 +1,14 @@
--- 10th Baby Game Learning Guide
+-- 11th Baby Game Learning Guide
 
--- adds an animation for the fire
+-- adds a time to track progress
 
 WINDOW_WIDTH = 1280
 WINDOW_HEIGHT = 720
 
 VIRTUAL_WIDTH = 432
 VIRTUAL_HEIGHT = 243
+
+speificTimer = 0
 
 push = require 'push'
 
@@ -46,6 +48,10 @@ function love.update(dt)
         baby.x = 500
         baby.y = 1000
     end
+
+    -- timer stuff
+    specificTimer = speificTimer + dt
+    timer = math.floor(specificTimer)
 end
 
 function love.resize(w, h)
@@ -58,6 +64,10 @@ function love.draw()
     love.graphics.draw(sprites.background)
     love.graphics.draw(sprites.baby,  baby.x , baby.y)
     love.graphics.draw(sprites.ground, 0, (VIRTUAL_HEIGHT - 60))
+
+    love.graphics.setFont(smallfont)
+    love.graphics.printf(timer, 0, 8, VIRTUAL_WIDTH, 'center')
+    love.graphics.printf(specificTimer, 0, 16, VIRTUAL_WIDTH, 'center')
 
     displayFPS()
     if gameState == 1 then
@@ -102,3 +112,4 @@ function fireAnimate()
         love.graphics.draw(sprites.fire4, 35, 125)
     end
 end
+
