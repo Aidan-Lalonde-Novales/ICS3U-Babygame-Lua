@@ -8,7 +8,8 @@ WINDOW_HEIGHT = 720
 VIRTUAL_WIDTH = 432
 VIRTUAL_HEIGHT = 243
 
-speificTimer = 0
+specificTimer = 0
+timer = 0
 
 push = require 'push'
 
@@ -41,7 +42,7 @@ function love.load()
 end
 
 function love.update(dt)
-    baby.x = baby.x - 0.5
+    baby.x = baby.x - 1
     if baby.x < 38 then
         gameState = 1
         gameOver()
@@ -49,9 +50,11 @@ function love.update(dt)
         baby.y = 1000
     end
 
-    -- timer stuff
-    specificTimer = speificTimer + dt
-    timer = math.floor(specificTimer)
+    if gameState == 0 then
+        specificTimer = specificTimer + dt
+        timer = specificTimer + 0.5
+        timer = (timer - (timer % 1))
+    end
 end
 
 function love.resize(w, h)
@@ -66,8 +69,7 @@ function love.draw()
     love.graphics.draw(sprites.ground, 0, (VIRTUAL_HEIGHT - 60))
 
     love.graphics.setFont(smallfont)
-    love.graphics.printf(timer, 0, 8, VIRTUAL_WIDTH, 'center')
-    love.graphics.printf(specificTimer, 0, 16, VIRTUAL_WIDTH, 'center')
+    love.graphics.printf("Time elapsed: "..timer, 0, 8, VIRTUAL_WIDTH, 'center')
 
     displayFPS()
     if gameState == 1 then
@@ -112,4 +114,3 @@ function fireAnimate()
         love.graphics.draw(sprites.fire4, 35, 125)
     end
 end
-
