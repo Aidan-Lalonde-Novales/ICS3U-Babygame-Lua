@@ -75,16 +75,6 @@ function love.keypressed(key)
     end
     if key == 'space' then
         baby.x = 370
-        math.random(1,4) == randomfire
-        if randomfire == 4 then
-            love.graphics.draw(sprites.fire1, 35, 125)
-        elseif randomfire == 3 then
-            love.graphics.draw(sprites.fire2, 35, 125)
-        elseif randomfire == 2 then
-            love.graphics.draw(sprites.fire3, 35, 125)
-        elseif randomfire == 1 then
-            love.graphics.draw(sprites.fire4, 35, 125)
-        end
     end
 end
 
@@ -101,14 +91,15 @@ function gameOver()
 end
 
 function fireAnimate()
-    math.random(1,4) == randomfire
-    if randomfire == 4 then
+
+    randomfire = math.random(1,16)
+    if randomfire == 13 or randomfire == 14 or randomfire == 15 or randomfire == 16 then
         love.graphics.draw(sprites.fire1, 35, 125)
-    elseif randomfire == 3 then
+    elseif randomfire == 9 or randomfire == 10 or randomfire == 11 or randomfire == 12 then
         love.graphics.draw(sprites.fire2, 35, 125)
-    elseif randomfire == 2 then
+    elseif randomfire == 5 or randomfire == 6 or randomfire == 7 or randomfire == 8 then
         love.graphics.draw(sprites.fire3, 35, 125)
-    elseif randomfire == 1 then
+    elseif randomfire == 1 or randomfire == 2 or randomfire == 3 or randomfire == 4 then
         love.graphics.draw(sprites.fire4, 35, 125)
     end
 end
