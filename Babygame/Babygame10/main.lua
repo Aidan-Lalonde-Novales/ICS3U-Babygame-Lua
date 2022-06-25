@@ -1,6 +1,6 @@
--- 11th Baby Game Learning Guide
+-- 12th Baby Game Learning Guide
 
--- adds a time to track progress
+-- adds a win state
 
 WINDOW_WIDTH = 1280
 WINDOW_HEIGHT = 720
@@ -72,6 +72,7 @@ function love.draw()
     love.graphics.printf("Time elapsed: "..timer, 0, 8, VIRTUAL_WIDTH, 'center')
 
     displayFPS()
+    
     if gameState == 1 then
         gameOver()
     end
@@ -100,6 +101,11 @@ end
 function gameOver()
     love.graphics.setFont(largefont)
     love.graphics.printf("Game Over, You Monster!", 0, VIRTUAL_HEIGHT / 2.5, VIRTUAL_WIDTH, 'center')
+end
+
+function gameWin()
+    love.graphics.setFont(largefont)
+    love.graphics.printf("Game Over, You Win!", 0, VIRTUAL_HEIGHT / 2.5, VIRTUAL_WIDTH, 'center')
 end
 
 function fireAnimate()
